@@ -7,3 +7,5 @@ declare type Product = {
 };
 
 declare type ProductCols = { id: keyof Product, text: string }[];
+
+declare type SelectManufacturer = { value: string, text?: string };
