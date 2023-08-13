@@ -4,6 +4,7 @@ declare type Product = {
   description: string,
   voltage: string,
   manufacturer: string,
+  edit: string,
 };
 
 declare type ProductCols = { id: keyof Product, text: string }[];

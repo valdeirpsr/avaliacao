@@ -51,7 +51,7 @@
                   <td>{{ item.voltage }}</td>
                   <td class="w-5">{{ item.manufacturer }}</td>
                   <td class="w-40 text-end space-x-2">
-                    <PsrButton type="icon" as="button" class="h-10 w-10">
+                    <PsrButton type="icon" class="h-10 w-10" :href="item.edit">
                       <img src="../../../assets/icons/new.svg"/>
                     </PsrButton>
 

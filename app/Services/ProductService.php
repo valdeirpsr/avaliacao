@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Repositories\ProductRepository;
+use Illuminate\Database\RecordsNotFoundException;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -36,5 +37,16 @@ class ProductService
         }
 
         return $this->repository->deleteProduct($product);
+    }
+
+    public function getProductById(int $productId): Product
+    {
+        $product = $this->repository->getByProductId($productId);
+
+        if (!$product) {
+            throw new RecordsNotFoundException('Produto não encontrado');
+        }
+
+        return $product;
     }
 }

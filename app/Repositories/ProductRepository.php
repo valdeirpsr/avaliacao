@@ -27,4 +27,9 @@ class ProductRepository
     {
         return $product->delete();
     }
+
+    public function getByProductId(int $product): ?Product
+    {
+        return Product::find($product);
+    }
 }

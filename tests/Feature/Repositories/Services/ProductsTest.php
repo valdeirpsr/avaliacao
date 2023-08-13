@@ -43,3 +43,17 @@ test('Um produto válido pode ser deletado', function () {
     $service = new ProductService($repository);
     $service->deleteProduct($fake);
 });
+
+test('Verifica se o produto retornado é igual ao informado através do ID', function () {
+    $fake = Product::factory()->create();
+
+    $service = new ProductService(new ProductRepository);
+    $product = $service->getProductById($fake->id);
+
+    $this->assertEquals($fake->toArray(), $product->toArray());
+});
+
+test('Ao capturar um produto inexistente, uma exceção deverá ser gerada', function () {
+    $service = new ProductService(new ProductRepository);
+    $service->getProductById(0);
+})->throws(Exception::class);

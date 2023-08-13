@@ -23,3 +23,4 @@ Route::post('/new', [ProductController::class, 'store']);
 
 Route::delete('/delete/{product}', [ProductController::class, 'destroy']);
 
+Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('edit');

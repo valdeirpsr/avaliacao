@@ -6,11 +6,17 @@
   import PsrTextarea from '../../Components/PsrTextarea.vue';
   import PsrButton from '../../Components/PsrButton.vue';
 
+  const props = withDefaults(defineProps<{
+    product: Product|undefined
+  }>(), {
+    product: undefined
+  });
+
   const form = useForm({
-    name: '',
-    voltage: '',
-    manufacturer: '',
-    description: '',
+    name: props.product?.name ?? '',
+    voltage: props.product?.voltage ?? '',
+    manufacturer: props.product?.manufacturer ?? '',
+    description: props.product?.description ?? '',
   });
 
   const manufactureres: SelectManufacturer[] = [
@@ -23,8 +29,10 @@
   ];
 
   function submit() {
+    const formUrl = props.product ? `/edit/${props.product.id}` : '/new';
+
     form.clearErrors();
-    form.post('/new');
+    form.post(formUrl);
   }
 </script>
 
@@ -33,7 +41,10 @@
 
   <div class="container mt-8 pb-32">
     <div class="rounded-lg">
-      <h1 class="text-2xl font-bold w-full">Criar Produto</h1>
+      <h1 class="text-2xl font-bold w-full">
+        <span v-if="!product">Criar Produto</span>
+        <span v-else>Editar o produto <span class="text-purple-500">{{ product.name }}</span></span>
+      </h1>
 
       <div class="mt-8 flex flex-col md:flex-row justify-evenly">
         <div class="space-y-8">
@@ -44,7 +55,7 @@
           </div>
 
           <div class="w-full space-y-2">
-            <label for="input-voltage">Tensão</label>
+            <label for="input-voltage">Tensão (apenas números)</label>
             <PsrInput v-model="form.voltage" id="input-voltage" type="number" placeholder="Informe a tensão do produto" />
             <p v-if="form.errors.voltage" class="text-red-500">Informe a tensão do produto (Apenas números)</p>
           </div>
