@@ -24,4 +24,13 @@ describe("Gerenciamento de um produto", () => {
     cy.contains('Produto 2');
     cy.contains('Produto atualizado com sucesso');
   });
+
+  it("Remove um produto", () => {
+    cy.visit("/");
+
+    cy.get("div:nth-of-type(1) > [data-test=\"btn-remove\"]").click();
+    cy.get("[data-testid='button-yes']").click();
+
+    cy.contains('Produto removido com sucesso');
+  });
 });

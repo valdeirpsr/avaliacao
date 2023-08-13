@@ -56,7 +56,14 @@
                         <img src="../../../assets/icons/new.svg"/>
                       </PsrButton>
 
-                      <PsrButton type="icon" color="danger" as="button" class="h-10 w-10" @click="openConfirm(item.id)">
+                      <PsrButton
+                        type="icon"
+                        color="danger"
+                        as="button"
+                        class="h-10 w-10"
+                        data-test="btn-remove"
+                        @click="openConfirm(item.id)"
+                      >
                         <img src="../../../assets/icons/remove.svg" alt="" />
                       </PsrButton>
                     </div>
