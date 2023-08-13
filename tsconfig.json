@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "strict": true,
+        "skipLibCheck": true,
+        "noImplicitAny": false,
+        "paths": {
+            "@*": ["resources/*"],
+        },
+        "typeRoots": [
+            "resources/js/Types/*.d.ts",
+        ]
+    },
+    "vueCompilerOptions": {
+        "target": 3
+    },
+    "include": [
+        "resources/js/**/*.vue",
+        "resources/js/**/*.ts",
+    ]
+}
