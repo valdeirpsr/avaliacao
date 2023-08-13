@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ProductService;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class ProductController extends Controller
@@ -29,5 +30,16 @@ class ProductController extends Controller
     public function create()
     {
         return Inertia::render('Products/PsrForm');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $this->service->create($request->all());
+
+        $request->session()->flash('success', 'Produto cadastrado com sucesso');
+        return Inertia::location('/');
     }
 }

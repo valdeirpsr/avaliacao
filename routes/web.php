@@ -19,3 +19,5 @@ Route::get('/', [ProductController::class, 'index']);
 
 Route::get('/new', [ProductController::class, 'create']);
 
+Route::post('/new', [ProductController::class, 'store']);
+
