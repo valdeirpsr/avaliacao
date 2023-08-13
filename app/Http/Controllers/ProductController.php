@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -40,6 +41,22 @@ class ProductController extends Controller
         $this->service->create($request->all());
 
         $request->session()->flash('success', 'Produto cadastrado com sucesso');
+        return Inertia::location('/');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Request $request, Product $product)
+    {
+        $result = $this->service->deleteProduct($product);
+
+        if ($result) {
+            $request->session()->flash('success', 'Produto removido com sucesso');
+        } else {
+            $request->session()->flash('failed', 'Falha ao tentar remover o produto');
+        }
+
         return Inertia::location('/');
     }
 }

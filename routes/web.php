@@ -21,3 +21,5 @@ Route::get('/new', [ProductController::class, 'create']);
 
 Route::post('/new', [ProductController::class, 'store']);
 
+Route::delete('/delete/{product}', [ProductController::class, 'destroy']);
+
