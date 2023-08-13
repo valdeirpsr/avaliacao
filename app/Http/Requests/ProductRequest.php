@@ -29,6 +29,7 @@ class ProductRequest extends FormRequest
             'voltage' => 'required|integer',
             'manufacturer' => [
                 'required',
+                new Enum(Manufacturer::class)
             ],
         ];
     }
