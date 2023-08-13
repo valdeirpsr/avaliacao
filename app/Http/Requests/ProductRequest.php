@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\Manufacturer as EnumsManufacturer;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Enum;
-use Manufacturer;
+use Illuminate\Validation\Rule;
 
 class ProductRequest extends FormRequest
 {
@@ -29,7 +29,7 @@ class ProductRequest extends FormRequest
             'voltage' => 'required|integer',
             'manufacturer' => [
                 'required',
-                new Enum(Manufacturer::class)
+                Rule::in(EnumsManufacturer::values())
             ],
         ];
     }
