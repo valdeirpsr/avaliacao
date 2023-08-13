@@ -25,9 +25,11 @@
 <template>
   <PsrHeader />
 
+  {{ $page.props.flash.message }}
+
   <div class="container mt-8 pb-32">
     <div class="flex w-full flex-col">
-      <PsrInput v-model="filter" type="search" />
+      <PsrInput v-model="filter" type="search" placeholder="Filtrar Produtos" />
 
       <PsrTable :cols="cols" :items="products" />
     </div>
