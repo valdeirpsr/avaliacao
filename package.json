@@ -12,6 +12,8 @@
         "@vue/test-utils": "^2.4.1",
         "autoprefixer": "^10.4.14",
         "axios": "^1.1.2",
+        "cypress": "^12.17.3",
+        "cypress-vite": "^1.4.2",
         "eslint": "^8.47.0",
         "eslint-plugin-vue": "^9.17.0",
         "happy-dom": "^10.9.0",

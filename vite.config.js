@@ -17,4 +17,15 @@ export default defineConfig({
       },
     })
   ],
+  e2e: {
+    setupNodeEvents(on) {
+      on(
+        'file:preprocessor',
+        vitePreprocessor({
+          configFile: path.resolve(__dirname, './vite.config.ts'),
+          mode: 'development',
+        }),
+      )
+    },
+  },
 });
