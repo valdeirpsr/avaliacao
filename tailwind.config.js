@@ -7,7 +7,18 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'scale-up': 'scale-up 200ms forwards',
+      },
+
+      keyframes: {
+        'scale-up': {
+          from: { transform: 'scale(0)' },
+          to: { transform: 'scale(1)' },
+        },
+      }
+    },
     container: {
       padding: '2rem',
     },

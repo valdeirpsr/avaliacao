@@ -8,13 +8,6 @@
     products: Product[];
   }>();
 
-  const cols: ProductCols = [
-    { id: 'name', text: 'Nome' },
-    { id: 'description', text: 'Descrição' },
-    { id: 'voltage', text: 'Tensão' },
-    { id: 'manufacturer', text: 'Fabricante' },
-  ];
-
   const filter = ref('');
 
   const products = computed(() => {
@@ -25,13 +18,15 @@
 <template>
   <PsrHeader />
 
-  {{ $page.props.flash.message }}
 
   <div class="container mt-8 pb-32">
-    <div class="flex w-full flex-col">
+    <div v-if="$page.props.flash.success" class="p-4 bg-green-200 text-green-900">{{ $page.props.flash.success }}</div>
+    <div v-if="$page.props.flash.failed" class="p-4 bg-red-200 text-red-900">{{ $page.props.flash.failed }}</div>
+
+    <div class="flex w-full flex-col mt-8">
       <PsrInput v-model="filter" type="search" placeholder="Filtrar Produtos" />
 
-      <PsrTable :cols="cols" :items="products" />
+      <PsrTable :items="products" />
     </div>
   </div>
 </template>

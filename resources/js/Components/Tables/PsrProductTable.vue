@@ -1,9 +1,26 @@
 <script setup lang="ts">
+  import { ref } from 'vue';
+  import PsrModalConfirm from '../PsrModalConfirm.vue';
   import PsrButton from '../PsrButton.vue';
+  import { useForm } from '@inertiajs/vue3';
 
   defineProps<{
     items: Product[]
   }>();
+
+  const confirmOpened = ref(false);
+  const productSelected = ref<Product['id']>();
+
+  function remove(): void {
+    useForm({}).delete(`/delete/${productSelected.value}`);
+
+    return;
+  }
+
+  function openConfirm(productId: Product['id']) {
+    confirmOpened.value = true;
+    productSelected.value = productId;
+  }
 </script>
 
 <template>
@@ -38,7 +55,7 @@
                       <img src="../../../assets/icons/new.svg"/>
                     </PsrButton>
 
-                    <PsrButton type="icon" color="danger" as="button" class="h-10 w-10">
+                    <PsrButton type="icon" color="danger" as="button" class="h-10 w-10" @click="openConfirm(item.id)">
                       <img src="../../../assets/icons/remove.svg" alt="" />
                     </PsrButton>
                   </td>
@@ -49,9 +66,11 @@
         </div>
       </div>
 
-      <PsrButton class="mt-4 ml-auto">Adicionar</PsrButton>
+      <PsrButton class="mt-4 ml-auto" href="/new">Adicionar</PsrButton>
     </div>
   </div>
+
+  <PsrModalConfirm v-show="confirmOpened" @dismiss="confirmOpened = false" @confirm="remove()" />
 </template>
 
 <style scoped lang="scss">

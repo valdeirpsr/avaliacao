@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Product;
 use App\Repositories\ProductRepository;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProductService
 {
@@ -25,5 +27,14 @@ class ProductService
         $validator->validate();
 
         return $this->repository->create($data);
+    }
+
+    public function deleteProduct(Product $product): bool|null
+    {
+        if (!$product->exists()) {
+            throw new NotFoundHttpException('Produto não encontrado');
+        }
+
+        return $this->repository->deleteProduct($product);
     }
 }

@@ -22,4 +22,9 @@ class ProductRepository
 
         return $model;
     }
+
+    public function deleteProduct(Product $product): bool|null
+    {
+        return $product->delete();
+    }
 }
