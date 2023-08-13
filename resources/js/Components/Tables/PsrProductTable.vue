@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <PsrButton class="mt-4 ml-auto" href="/new">Adicionar</PsrButton>
+      <PsrButton class="mt-4 ml-auto" href="/new" data-testid="btn-new">Adicionar</PsrButton>
     </div>
   </div>
 
