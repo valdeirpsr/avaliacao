@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Verifica snapshot do componente > Botão da cor danger 1`] = `"<a data-v-9ab42fc5=\\"\\" data-testid=\\"button\\" class=\\"button  danger\\"></a>"`;
+
+exports[`Verifica snapshot do componente > Botão do tipo ícone 1`] = `"<a data-v-9ab42fc5=\\"\\" data-testid=\\"button\\" class=\\"button icon\\"></a>"`;
+
+exports[`Verifica snapshot do componente > Botão padrão 1`] = `"<a data-v-9ab42fc5=\\"\\" data-testid=\\"button\\" class=\\"button\\"></a>"`;
