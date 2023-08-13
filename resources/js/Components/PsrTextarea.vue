@@ -9,21 +9,21 @@
 </script>
 
 <template>
-  <input
+  <textarea
     type="text"
-    data-testid="input"
-    aria-label="Filtra produtos com base no nome"
+    data-testid="textarea"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-  />
+  ></textarea>
 </template>
 
 <style scoped>
-  input {
+  textarea {
     @apply w-full rounded
     border
     border-neutral-300
     px-3
     py-[0.25rem]
+    h-48
     text-base
     font-normal
     leading-[1.6]

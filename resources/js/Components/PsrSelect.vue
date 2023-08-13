@@ -5,20 +5,22 @@
 
   defineProps<{
     modelValue: string,
+    items: SelectManufacturer[]
   }>();
 </script>
 
 <template>
-  <input
-    type="text"
-    data-testid="input"
+  <select
+    data-testid="select"
     aria-label="Filtra produtos com base no nome"
-    @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-  />
+    @change="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+  >
+    <option v-for="option in items" :value="option.value">{{ option.text ?? option.value }}</option>
+  </select>
 </template>
 
 <style scoped>
-  input {
+  select {
     @apply w-full rounded
     border
     border-neutral-300
