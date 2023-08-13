@@ -49,4 +49,15 @@ class ProductService
 
         return $product;
     }
+
+    public function update(int $productId, Product $product): bool
+    {
+        $productExists = !!$this->repository->getByProductId($productId);
+
+        if (!$productExists) {
+            throw new RecordsNotFoundException('Produto não encontrado');
+        }
+
+        return $this->repository->update($productId, $product);
+    }
 }

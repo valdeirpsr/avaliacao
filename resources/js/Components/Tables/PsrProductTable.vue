@@ -50,14 +50,16 @@
                   <td class="max-w-[40px] truncate overflow-hidden">{{ item.description }}</td>
                   <td>{{ item.voltage }}</td>
                   <td class="w-5">{{ item.manufacturer }}</td>
-                  <td class="w-40 text-end space-x-2">
-                    <PsrButton type="icon" class="h-10 w-10" :href="item.edit">
-                      <img src="../../../assets/icons/new.svg"/>
-                    </PsrButton>
+                  <td class="w-40 text-end">
+                    <div class="space-x-2 flex justify-end">
+                      <PsrButton type="icon" class="h-10 w-10" :href="item.edit">
+                        <img src="../../../assets/icons/new.svg"/>
+                      </PsrButton>
 
-                    <PsrButton type="icon" color="danger" as="button" class="h-10 w-10" @click="openConfirm(item.id)">
-                      <img src="../../../assets/icons/remove.svg" alt="" />
-                    </PsrButton>
+                      <PsrButton type="icon" color="danger" as="button" class="h-10 w-10" @click="openConfirm(item.id)">
+                        <img src="../../../assets/icons/remove.svg" alt="" />
+                      </PsrButton>
+                    </div>
                   </td>
                 </tr>
               </tbody>

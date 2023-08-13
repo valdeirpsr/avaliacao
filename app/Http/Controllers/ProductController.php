@@ -78,9 +78,17 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $products)
+    public function update(Request $request, Product $product)
     {
-        //
+        try {
+            $product = $this->service->update($product->id, $product);
+
+            $request->session()->flash('success', 'Produto atualizado com sucesso');
+        } catch (RecordsNotFoundException $e) {
+            $request->session()->flash('failed', 'Falha ao atualizar produto. Registro não encontrado');
+        } finally {
+            return Inertia::location('/');
+        }
     }
 
     /**
