@@ -8,7 +8,7 @@
         "skipLibCheck": true,
         "noImplicitAny": false,
         "paths": {
-            "@*": ["resources/*"],
+            "@": ["resources/js/*"],
         },
         "typeRoots": [
             "resources/js/Types/*.d.ts",
