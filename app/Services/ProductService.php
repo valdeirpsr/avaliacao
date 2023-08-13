@@ -50,7 +50,7 @@ class ProductService
         return $product;
     }
 
-    public function update(int $productId, Product $product): bool
+    public function update(int $productId, array $product): bool
     {
         $productExists = !!$this->repository->getByProductId($productId);
 

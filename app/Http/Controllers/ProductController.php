@@ -81,7 +81,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         try {
-            $product = $this->service->update($product->id, $product);
+            $product = $this->service->update($product->id, $request->all());
 
             $request->session()->flash('success', 'Produto atualizado com sucesso');
         } catch (RecordsNotFoundException $e) {

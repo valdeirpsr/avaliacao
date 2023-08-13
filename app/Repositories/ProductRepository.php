@@ -33,15 +33,15 @@ class ProductRepository
         return Product::find($product);
     }
 
-    public function update(int $productId, Product $product): bool
+    public function update(int $productId, array $product): bool
     {
         /** Limita quais campos serão alterados */
         return Product::where('id', $productId)
             ->update([
-                'name' => $product->name,
-                'manufacturer' => $product->manufacturer,
-                'voltage' => $product->voltage,
-                'description' => $product->description,
+                'name' => $product['name'],
+                'manufacturer' => $product['manufacturer'],
+                'voltage' => $product['voltage'],
+                'description' => $product['description'],
             ]);
     }
 }
