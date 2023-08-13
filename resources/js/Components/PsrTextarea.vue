@@ -1,10 +1,10 @@
 <script setup lang="ts">
   defineEmits<{
-    (event: 'update:modelValue')
+    (event: 'update:modelValue');
   }>();
 
   defineProps<{
-    modelValue: string,
+    modelValue: string;
   }>();
 </script>
 
@@ -13,17 +13,17 @@
     type="text"
     data-testid="textarea"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-  ></textarea>
+    >{{ modelValue }}</textarea>
 </template>
 
 <style scoped>
   textarea {
-    @apply w-full rounded
+    @apply h-48 w-full
+    rounded
     border
     border-neutral-300
     px-3
     py-[0.25rem]
-    h-48
     text-base
     font-normal
     leading-[1.6]

@@ -1,10 +1,10 @@
 <script setup lang="ts">
   defineEmits<{
-    (event: 'update:modelValue')
+    (event: 'update:modelValue');
   }>();
 
   defineProps<{
-    modelValue: string,
+    modelValue: string;
   }>();
 </script>
 
@@ -13,6 +13,7 @@
     type="text"
     data-testid="input"
     aria-label="Filtra produtos com base no nome"
+    :value="modelValue"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
   />
 </template>

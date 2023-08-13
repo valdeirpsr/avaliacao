@@ -1,11 +1,11 @@
 <script setup lang="ts">
   defineEmits<{
-    (event: 'update:modelValue')
+    (event: 'update:modelValue');
   }>();
 
   defineProps<{
-    modelValue: string,
-    items: SelectManufacturer[]
+    modelValue: string;
+    items: SelectManufacturer[];
   }>();
 </script>
 
@@ -15,7 +15,9 @@
     aria-label="Filtra produtos com base no nome"
     @change="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
   >
-    <option v-for="option in items" :value="option.value">{{ option.text ?? option.value }}</option>
+    <option v-for="option in items" :value="option.value" :selected="option.value === modelValue">
+      {{ option.text ?? option.value }}
+    </option>
   </select>
 </template>
 
