@@ -18,12 +18,11 @@
 <template>
   <PsrHeader />
 
-
   <div class="container mt-8 pb-32">
-    <div v-if="$page.props.flash.success" class="p-4 bg-green-200 text-green-900">{{ $page.props.flash.success }}</div>
-    <div v-if="$page.props.flash.failed" class="p-4 bg-red-200 text-red-900">{{ $page.props.flash.failed }}</div>
+    <div v-if="$page.props.flash.success" class="bg-green-200 p-4 text-green-900">{{ $page.props.flash.success }}</div>
+    <div v-if="$page.props.flash.failed" class="bg-red-200 p-4 text-red-900">{{ $page.props.flash.failed }}</div>
 
-    <div class="flex w-full flex-col mt-8">
+    <div class="mt-8 flex w-full flex-col">
       <PsrInput v-model="filter" type="search" placeholder="Filtrar Produtos" />
 
       <PsrTable :items="products" />

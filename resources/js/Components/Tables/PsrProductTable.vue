@@ -5,7 +5,7 @@
   import { useForm } from '@inertiajs/vue3';
 
   defineProps<{
-    items: Product[]
+    items: Product[];
   }>();
 
   const confirmOpened = ref(false);
@@ -41,17 +41,13 @@
               </thead>
 
               <tbody>
-                <tr
-                  v-for="item, idx in items"
-                  :key="`item-${idx}`"
-                  class="border-b dark:border-neutral-500"
-                >
+                <tr v-for="(item, idx) in items" :key="`item-${idx}`" class="border-b dark:border-neutral-500">
                   <td>{{ item.name }}</td>
-                  <td class="max-w-[40px] truncate overflow-hidden">{{ item.description }}</td>
+                  <td class="max-w-[40px] overflow-hidden truncate">{{ item.description }}</td>
                   <td>{{ item.voltage }}</td>
                   <td class="w-5">{{ item.manufacturer }}</td>
                   <td class="w-40 text-end">
-                    <div class="space-x-2 flex justify-end">
+                    <div class="flex justify-end space-x-2">
                       <PsrButton type="icon" class="h-10 w-10" :href="item.edit">
                         <img src="../../../assets/icons/new.svg" />
                       </PsrButton>
@@ -75,7 +71,7 @@
         </div>
       </div>
 
-      <PsrButton class="mt-4 ml-auto" href="/new" data-testid="btn-new">Adicionar</PsrButton>
+      <PsrButton class="ml-auto mt-4" href="/new" data-testid="btn-new">Adicionar</PsrButton>
     </div>
   </div>
 
@@ -83,13 +79,13 @@
 </template>
 
 <style scoped lang="scss">
-table {
-  thead th {
-    @apply px-6 py-4;
-  }
+  table {
+    thead th {
+      @apply px-6 py-4;
+    }
 
-  tbody td {
-    @apply whitespace-nowrap px-6 py-4;
+    tbody td {
+      @apply whitespace-nowrap px-6 py-4;
+    }
   }
-}
 </style>

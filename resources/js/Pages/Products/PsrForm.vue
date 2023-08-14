@@ -6,11 +6,14 @@
   import PsrTextarea from '../../Components/PsrTextarea.vue';
   import PsrButton from '../../Components/PsrButton.vue';
 
-  const props = withDefaults(defineProps<{
-    product: Product|undefined
-  }>(), {
-    product: undefined
-  });
+  const props = withDefaults(
+    defineProps<{
+      product: Product | undefined;
+    }>(),
+    {
+      product: undefined,
+    }
+  );
 
   const form = useForm({
     name: props.product?.name ?? '',
@@ -41,12 +44,15 @@
 
   <div class="container mt-8 pb-32">
     <div class="rounded-lg">
-      <h1 class="text-2xl font-bold w-full">
+      <h1 class="w-full text-2xl font-bold">
         <span v-if="!product">Criar Produto</span>
-        <span v-else>Editar o produto <span class="text-purple-500">{{ product.name }}</span></span>
+        <span v-else>
+          Editar o produto
+          <span class="text-purple-500">{{ product.name }}</span>
+        </span>
       </h1>
 
-      <div class="mt-8 flex flex-col md:flex-row justify-evenly">
+      <div class="mt-8 flex flex-col justify-evenly md:flex-row">
         <div class="space-y-8">
           <div class="w-full space-y-2">
             <label for="input-name">Nome</label>
@@ -56,7 +62,12 @@
 
           <div class="w-full space-y-2">
             <label for="input-voltage">Tensão (apenas números)</label>
-            <PsrInput id="input-voltage" v-model="form.voltage" type="number" placeholder="Informe a tensão do produto" />
+            <PsrInput
+              id="input-voltage"
+              v-model="form.voltage"
+              type="number"
+              placeholder="Informe a tensão do produto"
+            />
             <p v-if="form.errors.voltage" class="text-red-500">Informe a tensão do produto (Apenas números)</p>
           </div>
 
