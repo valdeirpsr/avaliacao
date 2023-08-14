@@ -116,7 +116,7 @@
     "action": "App\\Http\\Controllers\\ProductController@update",
     "uri": "edit/{product}",
     "method": [
-      "POST"
+      "PUT"
     ]
   },
   "edit": {

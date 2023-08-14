@@ -5,7 +5,7 @@ Projeto desenvolvido com Laravel, Vue para avaliação
 
 ## Badges
 
-[![Tests with Vitest and PHPUnit](https://github.com/valdeirpsr/avaliacao/actions/workflows/laravel.yml/badge.svg)](https://github.com/valdeirpsr/avaliacao/actions/workflows/laravel.yml)
+[![Tests with Vitest and PHPUnit](https://github.com/valdeirpsr/avaliacao/actions/workflows/tests.yaml/badge.svg)](https://github.com/valdeirpsr/avaliacao/actions/workflows/tests.yaml)
 
 
 ## Instalação
