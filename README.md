@@ -1,3 +1,52 @@
+# Projeto para avaliação
+
+Projeto desenvolvido com Laravel, Vue para avaliação
+
+
+## Badges
+
+[![Tests with Vitest and PHPUnit](https://github.com/valdeirpsr/avaliacao/actions/workflows/laravel.yml/badge.svg)](https://github.com/valdeirpsr/avaliacao/actions/workflows/laravel.yml)
+
+
+## Instalação
+
+> São necessários: Docker, Docker Compose e o Pnpm
+
+Para instalar o projeto, execute o comando abaixo
+
+```bash
+  docker-compose up -d
+  pnpm build
+```
+
+## Executando testes
+
+### Vitest
+
+Para executar os testes dos componentes vue, execute o comando abaixo
+
+```bash
+  pnpm test
+```
+
+### PHPUnit
+
+Para testar o controller, repository e service, utilize o comando abaixo
+
+```bash
+  php artisan test
+```
+
+### Cypress
+
+Para executar os testes E2E, execute o comando abaixo
+
+> É necessário que o servidor esteja online para o teste E2E
+
+```bash
+  pnpm cypress
+```
+
 
 ## Rotas
 
