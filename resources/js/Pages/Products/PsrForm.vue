@@ -32,10 +32,15 @@
   ];
 
   function submit() {
-    const formUrl = props.product ? `/edit/${props.product.id}` : '/new';
+    form.clearErrors();
+
+    if (props.product) {
+      form.put(`/edit/${props.product.id}`);
+      return;
+    }
 
     form.clearErrors();
-    form.post(formUrl);
+    form.post('/new');
   }
 </script>
 
