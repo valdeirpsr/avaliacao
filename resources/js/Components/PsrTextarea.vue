@@ -13,7 +13,7 @@
     type="text"
     data-testid="textarea"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-    >{{ modelValue }}</textarea>
+  >{{ modelValue }}</textarea>
 </template>
 
 <style scoped>

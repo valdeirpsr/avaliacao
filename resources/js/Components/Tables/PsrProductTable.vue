@@ -53,7 +53,7 @@
                   <td class="w-40 text-end">
                     <div class="space-x-2 flex justify-end">
                       <PsrButton type="icon" class="h-10 w-10" :href="item.edit">
-                        <img src="../../../assets/icons/new.svg"/>
+                        <img src="../../../assets/icons/new.svg" />
                       </PsrButton>
 
                       <PsrButton

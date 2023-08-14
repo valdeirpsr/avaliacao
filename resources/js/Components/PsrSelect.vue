@@ -15,7 +15,7 @@
     aria-label="Filtra produtos com base no nome"
     @change="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
   >
-    <option v-for="option in items" :value="option.value" :selected="option.value === modelValue">
+    <option v-for="option in items" :key="`option-${option.value}`" :value="option.value" :selected="option.value === modelValue">
       {{ option.text ?? option.value }}
     </option>
   </select>

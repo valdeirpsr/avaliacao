@@ -3,7 +3,7 @@
     (event: 'click'): void;
   }>();
 
-  const props = withDefaults(
+  withDefaults(
     defineProps<{
       type?: '' | 'icon';
       color?: '' | 'danger';

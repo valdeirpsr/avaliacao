@@ -50,13 +50,13 @@
         <div class="space-y-8">
           <div class="w-full space-y-2">
             <label for="input-name">Nome</label>
-            <PsrInput v-model="form.name" id="input-name" placeholder="Informe o nome do produto" />
+            <PsrInput id="input-name" v-model="form.name" placeholder="Informe o nome do produto" />
             <p v-if="form.errors.name" class="text-red-500">Informe o nome do produto</p>
           </div>
 
           <div class="w-full space-y-2">
             <label for="input-voltage">Tensão (apenas números)</label>
-            <PsrInput v-model="form.voltage" id="input-voltage" type="number" placeholder="Informe a tensão do produto" />
+            <PsrInput id="input-voltage" v-model="form.voltage" type="number" placeholder="Informe a tensão do produto" />
             <p v-if="form.errors.voltage" class="text-red-500">Informe a tensão do produto (Apenas números)</p>
           </div>
 
@@ -70,7 +70,7 @@
         <div>
           <div class="w-full space-y-2">
             <label for="input-description">Descrição</label>
-            <PsrTextarea v-model="form.description" id="input-description" />
+            <PsrTextarea id="input-description" v-model="form.description" />
             <p v-if="form.errors.description" class="text-red-500">Informe a descrição</p>
           </div>
 

@@ -15,8 +15,8 @@
       <p class="my-8">Esta ação não poderá ser desfeita. Deseja continuar?</p>
 
       <p class="flex justify-between space-x-2 text-right">
-        <PsrButton @click="$emit('dismiss')" data-testid="button-no">Não</PsrButton>
-        <PsrButton color="danger" @click="$emit('confirm')" data-testid="button-yes">Sim</PsrButton>
+        <PsrButton data-testid="button-no" @click="$emit('dismiss')">Não</PsrButton>
+        <PsrButton color="danger" data-testid="button-yes" @click="$emit('confirm')">Sim</PsrButton>
       </p>
     </div>
   </div>
